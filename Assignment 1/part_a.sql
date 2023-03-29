@@ -1,6 +1,6 @@
 /*
-his is how you write a multi-line comment.
-Keep all SQL queries and answers related to part A here.
+    This is how you write a multi-line comment.
+    Keep all SQL queries and answers related to part A here.
 */
 
 -- Create the database
@@ -36,6 +36,13 @@ ORDER BY lname ASC;
 -- Question 3
 
 -- Question 4
+
+SELECT (fname || ' '|| lname)
+FROM loan
+INNER JOIN borrower ON loan.cardno = borrower.cardno
+WHERE borrower.cardno BETWEEN 100 AND 300
+    AND loan.datein < '15/MAR/15'
+    AND (suburb = 'KARAMA' OR suburb = 'DARWIN');
 
 -- Question 5
 
