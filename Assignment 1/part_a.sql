@@ -1,12 +1,14 @@
 /*
     This is how you write a multi-line comment.
     Keep all SQL queries and answers related to part A here.
+
+    https://www.w3schools.com/sql/
 */
 
--- Create the database
+-- Create the database (remember to run as a 'script', not as a 'statement')
 
 CREATE TABLE borrower AS SELECT * FROM jtutty.Borrower;
-CREATE TABLE book AS SELECT * FROM jtutty.book ;
+CREATE TABLE book AS SELECT * FROM jtutty.book;
 CREATE TABLE branch AS SELECT * FROM jtutty.branch;
 CREATE TABLE loan AS SELECT * FROM jtutty.loan;
 
