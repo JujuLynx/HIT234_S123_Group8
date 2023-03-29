@@ -19,14 +19,22 @@ branch:     branchid, branchname;
 loan:       isbn, branchid, cardno, dateout, datein;
 */
 
--- Question 1
+/*
+Question 1
+List in ascending order the Last Names of all borrowers with Card Number less than 150.
+*/
 
 SELECT lname
 FROM borrower
 WHERE cardno < 150
 ORDER BY lname ASC;
 
--- Question 2
+/*
+Question 2
+What are the records of those loans between 3 June 2014 and 8 Mar 2018?
+- The output should include the name of the cardholder, and title of the book.
+- List in ascending order by last name and first name
+*/
 
 SELECT lname, fname, isbn, dateout
 FROM loan
