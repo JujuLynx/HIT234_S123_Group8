@@ -79,16 +79,9 @@ Find the number of loans, which have been made from each branch?
 - The output of the above question is a table containing the list of loans only as per thecondition in the query
 */
 
-/*ATTEMPT 1 */
-SELECT B.BRANCHNAME, COUNT(L.ISBN)
-FROM BRANCH B, LOAN L
-WHERE B.BRANCHID = L.BRANCHID
-GROUP BY B.BRANCHNAME;
-
-/*ATTEMPT */
 SELECT BRANCH.BRANCHNAME, COUNT(LOAN.ISBN)
-FROM BRANCH
-JOIN LOAN ON BRANCH.BRANCHID = LOAN.BRANCHID
+FROM LOAN
+FULL OUTER JOIN BRANCH ON BRANCH.BRANCHID = LOAN.BRANCHID
 GROUP BY BRANCH.BRANCHNAME;
 
 /* Question 6
