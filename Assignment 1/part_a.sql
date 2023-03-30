@@ -50,6 +50,13 @@ Find the total numbers of loans with last name beginning with D through E (inclu
 - The output of the above question should be a column containing the sum of all the loanbased on the condition in the query, alternatively the output could be a table with columnsthat has the last name as per the condition in the query condition, also the table containsthe list of loans.
 */
 
+SELECT COUNT(B.CARDNO)
+FROM BORROWER B, LOAN L
+WHERE B.CARDNO = L.CARDNO
+AND (UPPER(B.LNAME) LIKE 'D%'
+OR UPPER(B.LNAME) LIKE 'E%'
+OR UPPER(B.LNAME) LIKE 'Q%'
+OR UPPER(B.LNAME) LIKE 'Z%');
 
 /* Question 4
 Find all borrowers for a loan that have the Date-in before 15-March-15 and the Card numberbetween 100 and 300 in Karama or Darwin.
@@ -72,6 +79,17 @@ Find the number of loans, which have been made from each branch?
 - The output of the above question is a table containing the list of loans only as per thecondition in the query
 */
 
+/*ATTEMPT 1 */
+SELECT B.BRANCHNAME, COUNT(L.ISBN)
+FROM BRANCH B, LOAN L
+WHERE B.BRANCHID = L.BRANCHID
+GROUP BY B.BRANCHNAME;
+
+/*ATTEMPT */
+SELECT BRANCH.BRANCHNAME, COUNT(LOAN.ISBN)
+FROM BRANCH
+JOIN LOAN ON BRANCH.BRANCHID = LOAN.BRANCHID
+GROUP BY BRANCH.BRANCHNAME;
 
 /* Question 6
 Create your own question based on the library database, and also provide a SQLStatement to answer your question.
