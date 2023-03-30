@@ -37,6 +37,8 @@ Question is too long to put here, refer to assignment for instructions.
 This answer is not yet finished.
 */
 
+-- Question 2
+
 CREATE TABLE occurrence_exercise (
     occexid INT,
     exerciseno VARCHAR(12), -- FOREIGN KEY REFERENCES Exercise(ExerciseNo),
@@ -55,7 +57,7 @@ INSERT INTO occurrence_exercise
         SELECT 9003, TO_NUMBER('003A', 'xxxx'), 2, 12,  90,  95,   90, 'Heavy'  FROM dual UNION ALL
         SELECT 9004, TO_NUMBER('004A', 'xxxx'), 3, 12, 200, 200,  200, 'Medium' FROM dual UNION ALL
         SELECT 9005, TO_NUMBER('006A', 'xxxx'), 3,  8, 110, 110,  115, 'Heavy'  FROM dual UNION ALL
-        SELECT 9006, TO_NUMBER('005A', 'xxxx'), 4, 10,  20,  25, 0, 'Medium' FROM dual UNION ALL
+        SELECT 9006, TO_NUMBER('005A', 'xxxx'), 4, 10,  20,  25,    0, 'Medium' FROM dual UNION ALL
         SELECT 9007, TO_NUMBER('001A', 'xxxx'), 4,  8,  10,  12,   10, 'Medium' FROM dual UNION ALL
         SELECT 9008, TO_NUMBER('002A', 'xxxx'), 5,  8,  85,  90,  115, 'Heavy'  FROM dual
     )
@@ -63,17 +65,17 @@ INSERT INTO occurrence_exercise
 SELECT * FROM occurrence_exercise;
 DROP TABLE occurrence_exercise;
 
+
 /*
 SELECT * FROM occurrence_exercise;
 DROP TABLE occurrence_exercise;
 */
 
--- Question 2
-
 /*
 INSERT INTO occurrence_exercise (OccExID, ExerciseNo, OccurrenceID, Rep, Attempt1, Attempt2, Attempt3, Condition)
 VALUES (1, TO_NUMBER('001A', 'xxxx'), 1, 8, 15, 15, 15, 'Light');
 */
+
 
 -- Question 3
 
