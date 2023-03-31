@@ -27,6 +27,18 @@ GROUP BY B.TITLE
 ORDER BY BOOK_COUNT DESC
 FETCH FIRST 5 ROWS ONLY;
 
+-- Alternate solution
+
+SELECT *
+FROM book
+WHERE book.isbn IN (
+    SELECT isbn
+    FROM loan
+    GROUP BY isbn
+    ORDER BY COUNT(*) DESC
+    FETCH FIRST 5 ROWS ONLY
+);
+
 -- Question 2
 
 -- Question 3
