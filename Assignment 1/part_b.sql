@@ -22,9 +22,9 @@ Example to insert multiple rows at a time into a table:
     );
     INSERT INTO test
         WITH t AS (
-            SELECT TO_NUMBER('A', 'x'), 'Alpha' FROM dual UNION ALL
-            SELECT TO_NUMBER('B', 'x'), 'Bravo' FROM dual UNION ALL
-            SELECT TO_NUMBER('C', 'x'), 'Charlie' FROM dual
+            SELECT 1, 'Alpha' FROM dual UNION ALL
+            SELECT 2, 'Bravo' FROM dual UNION ALL
+            SELECT 3, 'Charlie' FROM dual
         )
         SELECT * FROM t;
     SELECT * FROM test;
@@ -34,10 +34,8 @@ Example to insert multiple rows at a time into a table:
 
 /* Question 1
 Question is too long to put here, refer to assignment for instructions.
-This answer is not yet finished.
+I don't think Oracle likes it if you make foreign keys to tables that don't exist, so remove the comments if/when those tables are created.
 */
-
--- Question 2
 
 CREATE TABLE occurrence_exercise (
     occexid INT PRIMARY KEY,
@@ -50,6 +48,9 @@ CREATE TABLE occurrence_exercise (
     condition VARCHAR(6)
         CONSTRAINT check_Condition CHECK (Condition IN ('Heavy', 'Medium', 'Light'))
 );
+
+-- Question 2
+
 INSERT INTO occurrence_exercise
     WITH t (occexid, exerciseno, occurrenceID, rep, attempt1, attempt2, attempt3, condition) AS (
         SELECT 9001, TO_NUMBER('001A', 'xxxx'), 1,  8,  15,  15,   15, 'Light'  FROM dual UNION ALL
