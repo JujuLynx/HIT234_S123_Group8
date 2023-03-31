@@ -40,7 +40,7 @@ This answer is not yet finished.
 -- Question 2
 
 CREATE TABLE occurrence_exercise (
-    occexid INT,
+    occexid INT PRIMARY KEY,
     exerciseno VARCHAR(12), -- FOREIGN KEY REFERENCES Exercise(ExerciseNo),
     occurrenceID INT, -- FOREIGN KEY REFERENCES Occurence(OccurrenceID),
     rep INT,
