@@ -2,12 +2,21 @@
 
 /*
 Keep all SQL queries and answers related to part C here.
+Questions 1-4 use the 'library' database
 */
 
--- Question 1
-/* What are the 5 most popular books?
-◦	Show ASBN, Title.
-◦	HINT: To limit results use ROWNUM.
+-- Create the database. Remember to run as a 'script', not as a 'statement' (2nd button)
+
+CREATE TABLE borrower AS SELECT * FROM jtutty.Borrower;
+CREATE TABLE book AS SELECT * FROM jtutty.book;
+CREATE TABLE branch AS SELECT * FROM jtutty.branch;
+CREATE TABLE loan AS SELECT * FROM jtutty.loan;
+
+/* Question 1
+What are the 5 most popular books?
+
+- Show ASBN, Title.
+- HINT: To limit results use ROWNUM.
 */
 
 SELECT B.TITLE, COUNT(L.ISBN) AS BOOK_COUNT
@@ -42,3 +51,8 @@ Use the customer invoice databse
 
 CREATE TABLE CDUINVOICE AS SELECT * FROM ccoley.CDUINVOICE;
 CREATE TABLE CDUCUSTOMER AS SELECT * FROM ccoley.CDUCUSTOMER;
+
+-- Cleanup
+
+DROP TABLE;
+DROP TABLE;
