@@ -43,7 +43,7 @@ WITH popular AS (
         FROM popular
     )
 )
-SELECT books.isbn,  popular.checkedout, books.title
+SELECT books.isbn, popular.checkedout, books.title
 FROM books
 LEFT JOIN popular
 ON books.isbn = popular.isbn;
