@@ -29,15 +29,24 @@ FETCH FIRST 5 ROWS ONLY;
 
 -- Alternate solution
 
-SELECT *
-FROM book
-WHERE book.isbn IN (
-    SELECT isbn
+WITH popular AS (
+    SELECT isbn, COUNT(*) AS checkedout
     FROM loan
     GROUP BY isbn
     ORDER BY COUNT(*) DESC
     FETCH FIRST 5 ROWS ONLY
-);
+), books AS (
+    SELECT isbn, title
+    FROM book
+    WHERE book.isbn IN (
+        SELECT isbn
+        FROM popular
+    )
+)
+SELECT books.isbn,  popular.checkedout, books.title
+FROM books
+LEFT JOIN popular
+ON books.isbn = popular.isbn;
 
 -- Question 2
 
