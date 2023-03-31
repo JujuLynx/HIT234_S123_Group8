@@ -64,7 +64,7 @@ INSERT INTO occurrence_exercise
     )
     SELECT * FROM t;
 SELECT * FROM occurrence_exercise;
-DROP TABLE occurrence_exercise;
+DROP TABLE occurrence_exercise; -- cleanup
 
 
 /*
@@ -78,6 +78,21 @@ VALUES (1, TO_NUMBER('001A', 'xxxx'), 1, 8, 15, 15, 15, 'Light');
 */
 
 
--- Question 3
+/* Question 3
+Create the following query:
+    Find the exercise which contains the maximum total weight lifted
+    - Show: Exercise, Maximum weight
+    - Ensure you show captions for each of the columns
 
--- Question 4
+    Hint: you would need to consider the number of times the weight is lifted and weight
+    e.g. rep multiplied by attempt multiplied by the weight
+*/
+
+/* Question 4
+Create the following query:
+    Find the exercise that the user was not able to complete 3 attempts in, or the exercise that the user has not attempted.
+    - Show appropriate columns
+    - List in ascending order exercise type
+    - Do not show repeated names
+    - Ensure you show captions for each of the columns
+*/
