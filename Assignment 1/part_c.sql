@@ -5,6 +5,18 @@ Keep all SQL queries and answers related to part C here.
 */
 
 -- Question 1
+/* What are the 5 most popular books?
+◦	Show ASBN, Title.
+◦	HINT: To limit results use ROWNUM.
+*/
+
+SELECT B.TITLE, COUNT(L.ISBN) AS BOOK_COUNT
+FROM LOAN L
+JOIN BOOK B
+ON L.ISBN = B.ISBN
+GROUP BY B.TITLE
+ORDER BY BOOK_COUNT DESC
+FETCH FIRST 5 ROWS ONLY;
 
 -- Question 2
 
