@@ -45,6 +45,20 @@ AND L1.CARDNO = L2.CARDNO
 AND L1.DATEIN = '16-DEC-2010'
 AND L2.DATEIN = '8-MAY-2012';
 
+-- Method 2
+
+SELECT *
+FROM borrower
+WHERE borrower.cardno IN (
+    SELECT cardno
+    FROM loan
+    WHERE datein = '16-DEC-2010'
+    AND cardno IN (
+        SELECT cardno
+        FROM loan
+        WHERE datein = '8-MAY-2012'
+));
+
 /* Question 5
 Use the customer invoice databse
 */
