@@ -88,6 +88,10 @@ Create the following query:
     e.g. rep multiplied by attempt multiplied by the weight
 */
 
+SELECT OCCEXID AS EXERCISE, REP*(ATTEMPT1 + ATTEMPT2 + ATTEMPT3) AS MAX_WEIGHT
+FROM OCCURRENCE_EXERCISE
+ORDER BY MAX_WEIGHT DESC;
+
 /* Question 4
 Create the following query:
     Find the exercise that the user was not able to complete 3 attempts in, or the exercise that the user has not attempted.
