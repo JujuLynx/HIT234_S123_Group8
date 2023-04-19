@@ -56,8 +56,25 @@ LEFT JOIN popular
 ON books.isbn = popular.isbn;
 
 -- Question 2
+SELECT BranchName
+FROM Branch
+WHERE BranchID NOT IN 
+(SELECT DISTINCT BranchID
+    FROM Loan)
+ORDER BY BranchName ASC;
+
 
 -- Question 3
+SELECT 
+    b.BRANCHNAME, 
+    ROUND(MAX(l.DATEIN - l.DATEOUT), 1) 
+    AS "Longest Loaned Out books"
+FROM BRANCH b
+LEFT JOIN LOAN l 
+ON b.BRANCHID = l.BRANCHID
+GROUP BY b.BRANCHNAME
+ORDER BY b.BRANCHNAME;
+
 
 -- Question 4
 /*Find the borrower that has returned a book on the dated 16 December 2010 and 8 May 2012
