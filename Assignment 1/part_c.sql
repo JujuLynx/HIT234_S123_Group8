@@ -106,6 +106,9 @@ WHERE borrower.cardno IN (
 
 /* Question 5
 Use the customer invoice databse
+
+Devise a delete query, which will eliminate duplicates for customer columns `ID`, `CustomerLastName`, `CustomerFirstName` and invoice columns `Invoice_Date` and `Invoice_No`. Ensure the query removes all duplicate data.
+
 */
 
 CREATE TABLE CDUINVOICE AS SELECT * FROM ccoley.CDUINVOICE;
