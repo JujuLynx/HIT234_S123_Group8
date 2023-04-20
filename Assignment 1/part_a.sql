@@ -12,6 +12,13 @@ CREATE TABLE book AS SELECT * FROM jtutty.book;
 CREATE TABLE branch AS SELECT * FROM jtutty.branch;
 CREATE TABLE loan AS SELECT * FROM jtutty.loan;
 
+-- Cleanup
+
+DROP TABLE borrower;
+DROP TABLE book;
+DROP TABLE branch;
+DROP TABLE loan;
+
 /* Columns
 borrower:   cardno, lname, fname, suburb, postcode;
 book:       isbn, title, yearpublished, publishername;
