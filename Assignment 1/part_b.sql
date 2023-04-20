@@ -123,3 +123,21 @@ INSERT INTO exercise_table
     SELECT * FROM tbl;
 
 DROP TABLE exercise_table; -- cleanup
+
+-- Actual query for B4 (Make sure you've added both the 'exercise_table' and the 'occurrence_exercise' tables.)
+
+SELECT ExerciseNo, ExerciseDescription, ExerciseType
+FROM exercise_table
+WHERE ExerciseNo NOT IN (
+    SELECT exerciseno 
+    FROM occurrence_exercise)
+UNION
+SELECT * FROM exercise_table
+WHERE ExerciseNo IN (
+    SELECT exerciseno
+    FROM occurrence_exercise
+    WHERE attempt1 = 0
+    OR attempt2 = 0
+    OR attempt3 = 0)
+GROUP BY ExerciseNo, ExerciseDescription, ExerciseType;
+
