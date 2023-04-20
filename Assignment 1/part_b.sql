@@ -49,7 +49,9 @@ CREATE TABLE occurrence_exercise (
         CONSTRAINT check_Condition CHECK (Condition IN ('Heavy', 'Medium', 'Light'))
 );
 
--- Question 2
+/* Question 2
+Write an SQL statement that will insert the data into Occurrence_Exercise table only.
+*/
 
 INSERT INTO occurrence_exercise
     WITH t (occexid, exerciseno, occurrenceID, rep, attempt1, attempt2, attempt3, condition) AS (
