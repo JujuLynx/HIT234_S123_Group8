@@ -116,16 +116,22 @@ Devise a delete query, which will eliminate duplicates for customer columns `ID`
 CREATE TABLE CDUINVOICE AS SELECT * FROM ccoley.CDUINVOICE;
 CREATE TABLE CDUCUSTOMER AS SELECT * FROM ccoley.CDUCUSTOMER;
 
-DELETE FROM CDUCUSTOMER c
-WHERE ROWID > (SELECT MIN(ROWID)
-FROM CDUCUSTOMER
-WHERE ID=c.ID AND CustomerLastName=c.CustomerLastName
-AND CustomerFirstName=c.CustomerFirstName);
-DELETE FROM CDUINVOICE i
-WHERE ROWID > (SELECT MIN(ROWID)
-FROM CDUINVOICE
-WHERE ID=i.ID AND Invoice_No=i.Invoice_No
-AND Invoice__Date=i.Invoice__Date);
+DELETE FROM CDUCUSTOMER a
+WHERE a.ROWID > ANY (
+    SELECT b.ROWID
+    FROM CDUCUSTOMER b
+    WHERE a.CustomerLastName = b.CustomerLastName
+    OR a.CustomerFirstName = b.CustomerFirstName
+    OR a.ID = b.ID
+);
+
+DELETE FROM CDUINVOICE a
+WHERE a.ROWID > ANY (
+    SELECT b.ROWID
+    FROM CDUINVOICE b
+    WHERE a.Invoice__Date = b.Invoice__Date
+    OR a.Invoice_No = b.Invoice_No
+);
 
 -- Cleanup
 
