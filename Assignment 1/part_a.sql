@@ -76,7 +76,8 @@ FROM loan
 INNER JOIN borrower ON loan.cardno = borrower.cardno
 WHERE borrower.cardno BETWEEN 100 AND 300
     AND loan.datein < '15/MAR/15'
-    AND (suburb = 'KARAMA' OR suburb = 'DARWIN');
+    AND (suburb = 'KARAMA' OR suburb = 'DARWIN')
+GROUP BY (fname || ' '|| lname);
 
 
 /* Question 5
