@@ -64,6 +64,7 @@ INSERT INTO occurrence_exercise
     )
     SELECT * FROM t;
 SELECT * FROM occurrence_exercise;
+
 DROP TABLE occurrence_exercise; -- cleanup
 
 
@@ -101,3 +102,24 @@ Create the following query:
     - Ensure you show captions for each of the columns
 */
 
+-- Query might need 'exercise_table', so insert it using this:
+
+CREATE TABLE exercise_table (
+    ExerciseNo INT PRIMARY KEY,
+    ExerciseDescription VARCHAR(32),
+    ExerciseType VARCHAR(32)
+);
+
+INSERT INTO exercise_table
+    WITH tbl (ExerciseNo, ExerciseDescription, ExerciseType) AS (
+        SELECT TO_NUMBER('001A', 'xxxx'), 'Situps', 'Abs' FROM dual UNION ALL
+        SELECT TO_NUMBER('002A', 'xxxx'), 'Bench Press', 'Chest' FROM dual UNION ALL
+        SELECT TO_NUMBER('003A', 'xxxx'), 'Dead Lifts', 'Back' FROM dual UNION ALL
+        SELECT TO_NUMBER('004A', 'xxxx'), 'Leg Press', 'Legs' FROM dual UNION ALL
+        SELECT TO_NUMBER('005A', 'xxxx'), 'Seated Shoulder Press', 'Shoulders' FROM dual UNION ALL
+        SELECT TO_NUMBER('006A', 'xxxx'), 'Squats', 'Legs' FROM dual UNION ALL
+        SELECT TO_NUMBER('007A', 'xxxx'), 'Lat pull downs', 'Lats' FROM dual
+    )
+    SELECT * FROM tbl;
+
+DROP TABLE exercise_table; -- cleanup
