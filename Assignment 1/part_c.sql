@@ -111,6 +111,8 @@ Devise a delete query, which will eliminate duplicates for customer columns `ID`
 
 */
 
+-- Create tables
+
 CREATE TABLE CDUINVOICE AS SELECT * FROM ccoley.CDUINVOICE;
 CREATE TABLE CDUCUSTOMER AS SELECT * FROM ccoley.CDUCUSTOMER;
 
