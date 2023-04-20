@@ -100,12 +100,4 @@ Create the following query:
     - Do not show repeated names
     - Ensure you show captions for each of the columns
 */
-SELECT ExerciseDescription, ExerciseType,OccurenceID,Rep, Attempt1, Attempt2, Attempt3,Condition
-FROM Exercise ex
-LEFT JOIN Occurence_Exercise oe ON 
-ex.ExerciseNo = oe.ExerciseNo
-GROUP BY ExerciseDescription, ExerciseType,OccurenceID,Rep, Attempt1, Attempt2, Attempt3,Condition
-HAVING COUNT(CASE WHEN oe.Attempt1 IS NOT NULL THEN 1 END) +
-       COUNT(CASE WHEN oe.Attempt2 IS NOT NULL THEN 1 END) +
-       COUNT(CASE WHEN oe.Attempt3 IS NOT NULL THEN 1 END) < 3
-ORDER BY ExerciseType ASC;
+
