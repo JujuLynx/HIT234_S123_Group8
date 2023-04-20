@@ -124,7 +124,7 @@ INSERT INTO exercise_table
 
 DROP TABLE exercise_table; -- cleanup
 
--- Actual query for B4
+-- Actual query for B4 (Make sure you've added both the 'exercise_table' and the 'occurrence_exercise' tables.)
 
 SELECT ExerciseNo, ExerciseDescription, ExerciseType
 FROM exercise_table
