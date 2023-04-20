@@ -94,4 +94,13 @@ GROUP BY BRANCH.BRANCHNAME;
 
 /* Question 6
 Create your own question based on the library database, and also provide a SQLStatement to answer your question.
+
+Find out the top 6 publishers between 1992-1994. Output should contain total publication column where the count is recorded.
 */
+
+SELECT publishername, COUNT(*) AS total_publication
+FROM book
+WHERE yearpublished BETWEEN 1992 AND 1994
+GROUP BY publishername
+ORDER BY total_publication DESC
+OFFSET 0 ROWS FETCH NEXT 6 ROWS ONLY;
